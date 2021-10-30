@@ -25,4 +25,6 @@ public interface TermDAO {
     @Query("SELECT * FROM term_table")
     List<TermEntity> getAllTerms();
 
+
+
 }
