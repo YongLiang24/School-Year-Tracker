@@ -6,11 +6,10 @@ import com.yongliang.schoolyeartracker.DAO.TermDAO;
 import com.yongliang.schoolyeartracker.Entity.TermEntity;
 
 import java.util.List;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class TermRepository {
+public class Repository {
     private TermDAO mTermDao;
     private List<TermEntity> mAllTerms;
 
@@ -18,8 +17,8 @@ public class TermRepository {
     private static int NUMBER_OF_THREADS=4;
     static final ExecutorService databaseExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
-    public TermRepository(Application application){
-        TermDatabaseBuilder db = TermDatabaseBuilder.getDatabase(application);
+    public Repository(Application application){
+        DatabaseBuilder db = DatabaseBuilder.getDatabase(application);
         mTermDao = db.termDao();
     }
 
@@ -76,7 +75,4 @@ public class TermRepository {
             e.printStackTrace();
         }
     }
-
-
-
 }

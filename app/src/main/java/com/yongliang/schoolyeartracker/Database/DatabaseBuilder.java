@@ -10,16 +10,16 @@ import com.yongliang.schoolyeartracker.DAO.TermDAO;
 import com.yongliang.schoolyeartracker.Entity.TermEntity;
 
 @Database(entities={TermEntity.class}, version=1, exportSchema = false)
-public abstract class TermDatabaseBuilder extends RoomDatabase {
+public abstract class DatabaseBuilder extends RoomDatabase {
     public abstract TermDAO termDao();
 
-    private static volatile TermDatabaseBuilder INSTANCE;
+    private static volatile DatabaseBuilder INSTANCE;
 
-    static TermDatabaseBuilder getDatabase(final Context context){
+    static DatabaseBuilder getDatabase(final Context context){
         if(INSTANCE == null){
-            synchronized (TermDatabaseBuilder.class){
+            synchronized (DatabaseBuilder.class){
                 if(INSTANCE==null){
-                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(),TermDatabaseBuilder.class, "MyTermDB.db").fallbackToDestructiveMigration().build();
+                    INSTANCE= Room.databaseBuilder(context.getApplicationContext(), DatabaseBuilder.class, "MyTermDB.db").fallbackToDestructiveMigration().build();
                 }
             }
         }
