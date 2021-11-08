@@ -1,25 +1,35 @@
 package com.yongliang.schoolyeartracker.Entity;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity (tableName = "term_table")
 public class TermEntity {
     @PrimaryKey(autoGenerate = true)
-    private int termID;
+    private int id;
 
     private String TermName;
     private String StartDate;
     private String EndDate;
 
-    public TermEntity() {
-    }
-
-    public TermEntity(int termID, String termName, String startDate, String endDate) {
-        this.termID = termID;
+    public TermEntity(String termName, String startDate, String endDate) {
         TermName = termName;
         StartDate = startDate;
         EndDate = endDate;
+    }
+
+
+    public TermEntity() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -31,13 +41,6 @@ public class TermEntity {
                 '}';
     }
 
-    public int getTermID() {
-        return termID;
-    }
-
-    public void setTermID(int termID) {
-        this.termID = termID;
-    }
 
     public String getTermName() {
         return TermName;

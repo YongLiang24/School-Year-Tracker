@@ -32,11 +32,6 @@ public class AddTerm extends AppCompatActivity {
     }
 
     public void saveTerm(View view) {
-//        TermRepository rep = new TermRepository(getApplication());
-//        TermEntity term = new TermEntity(1, "spring", "10-02/2021", "10-03/2021");
-//        rep.insert(term);
-
-
 
         Intent intent = new Intent(AddTerm.this, TermActivity.class);
         startActivity(intent);
