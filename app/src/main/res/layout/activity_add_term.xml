@@ -30,7 +30,7 @@
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:hint="EX: Spring Term"
-                    android:id="@+id/termTitle"
+                    android:id="@+id/addTermTitle"
                     android:inputType="text"
                     android:maxLines="1"
                     android:imeOptions="actionDone"/>
