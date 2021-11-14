@@ -27,10 +27,10 @@ public class TermActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //display the term list
         repo=new Repository(getApplication());
         List<TermEntity> allTerms=repo.getAllTerms();
         RecyclerView recyclerView =findViewById(R.id.recyclerview);
-        System.out.println(allTerms);
 
         final TermAdapter termAdapter=new TermAdapter(this);
         recyclerView.setAdapter(termAdapter);

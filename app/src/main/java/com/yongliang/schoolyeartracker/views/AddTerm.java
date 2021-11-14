@@ -58,7 +58,7 @@ public class AddTerm extends AppCompatActivity {
         //System.out.println("date: "+endDate);
 
         //validate term title input
-        if(termTitle.isEmpty()){
+        if(termTitle.isEmpty() || termTitle.length()>15){
             addTerm.setHint("This field is Required.");
         }
         else{

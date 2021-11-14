@@ -60,7 +60,6 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
     @Override
     public TermAdapter.TermViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View termView=mInflater.inflate(R.layout.list_term, parent, false);
-
         return new TermViewHolder(termView);
     }
 

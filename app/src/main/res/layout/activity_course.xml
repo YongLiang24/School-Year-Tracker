@@ -6,14 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".views.CourseActivity">
 
-    <TextView
-        android:id="@+id/termNameView"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="Courses" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="Start Date" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="End Date" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerview"
+        android:paddingTop="20dp"
+        android:paddingBottom="12dp"
+        android:layout_marginBottom="35dp"
+        />
+
+    <Button
+        android:id="@+id/addCourseBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="144dp"
-        tools:layout_editor_absoluteY="250dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Add Course"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="674dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_marginRight="10dp"
+        />
+    <Button
+        android:id="@+id/deleteCourseBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete Term"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="674dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="10dp"
+       />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

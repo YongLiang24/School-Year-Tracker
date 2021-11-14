@@ -39,7 +39,8 @@
         android:layout_height="match_parent"
         android:id="@+id/recyclerview"
         android:paddingTop="20dp"
-        android:paddingBottom="12dp"/>
+        android:paddingBottom="12dp"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"

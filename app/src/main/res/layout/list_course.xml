@@ -7,26 +7,24 @@
     android:background="@drawable/item_border">
 
     <TextView
-        android:id="@+id/termView"
+        android:id="@+id/courseView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/termView2"
+        android:id="@+id/courseView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/termView3"
+        android:id="@+id/courseView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
 </LinearLayout>
-
-
