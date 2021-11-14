@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -63,5 +64,10 @@ public class CourseActivity extends AppCompatActivity {
     }
 
     public void addCourse(View view) {
+        Intent intent = new Intent(CourseActivity.this, AddCourse.class);
+        startActivity(intent);
+    }
+
+    public void deleteTerm(View view) {
     }
 }

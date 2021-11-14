@@ -7,4 +7,11 @@
     <string name="endDate">End Date</string>
     <string name="save">Save</string>
     <string name="AddTerm">Add a Term</string>
+
+    <string-array name="status_spinner">
+        <item>In Progress</item>
+        <item>Plan to Take</item>
+        <item>Completed</item>
+        <item>Dropped</item>
+    </string-array>
 </resources>
