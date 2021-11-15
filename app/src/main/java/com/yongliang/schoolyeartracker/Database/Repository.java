@@ -17,6 +17,8 @@ public class Repository {
     private TermDAO mTermDao;
     private List<TermEntity> mAllTerms;
 
+    private TermEntity mThisTerm;
+
     private CourseDAO mCourseDao;
     private List<CourseEntity> mAllCourses;
 
@@ -48,6 +50,20 @@ public class Repository {
             e.printStackTrace();
         }
         return mAllTerms;
+    }
+
+    //get a term by id.
+    public TermEntity getThisTerm(int id){
+        databaseExecutor.execute(()->{
+            mThisTerm=mTermDao.getThisTerm(id);
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mThisTerm;
     }
 
     //get all courses

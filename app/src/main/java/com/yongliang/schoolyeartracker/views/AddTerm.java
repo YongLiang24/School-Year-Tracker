@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.yongliang.schoolyeartracker.Database.Repository;
 import com.yongliang.schoolyeartracker.Entity.TermEntity;
@@ -46,20 +47,20 @@ public class AddTerm extends AppCompatActivity {
     public void saveTerm(View view) {
         addTerm=findViewById(R.id.addTermTitle);
         termTitle=addTerm.getText().toString();
-        //System.out.println("term title: "+termTitle);
 
         //convert date picker to string
         sDate=findViewById(R.id.startDatePicker);
-        startDate=String.valueOf(sDate.getMonth())+"-"+String.valueOf(sDate.getDayOfMonth())+"-"+String.valueOf(sDate.getYear());
+        int sMonth = sDate.getMonth()+1;
+        startDate=String.valueOf(sMonth)+"-"+String.valueOf(sDate.getDayOfMonth())+"-"+String.valueOf(sDate.getYear());
         //System.out.println("date: "+startDate);
-
         eDate=findViewById(R.id.endDatePicker);
-        endDate=String.valueOf(eDate.getMonth())+"-"+String.valueOf(eDate.getDayOfMonth())+"-"+String.valueOf(eDate.getYear());
+        int eMonth = eDate.getMonth()+1;
+        endDate=String.valueOf(eMonth)+"-"+String.valueOf(eDate.getDayOfMonth())+"-"+String.valueOf(eDate.getYear());
         //System.out.println("date: "+endDate);
 
         //validate term title input
         if(termTitle.isEmpty() || termTitle.length()>15){
-            addTerm.setHint("This field is Required.");
+            Toast.makeText(getApplicationContext(),"Please fill all fields before Saving",Toast.LENGTH_LONG).show();
         }
         else{
             Repository repo = new Repository(getApplication());

@@ -25,6 +25,9 @@ public interface TermDAO {
     @Query("SELECT * FROM term_table")
     List<TermEntity> getAllTerms();
 
+    @Query("SELECT * FROM term_table WHERE id= :id")
+    TermEntity getThisTerm(int id);
+
 
 
 }

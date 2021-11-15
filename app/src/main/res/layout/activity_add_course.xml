@@ -67,7 +67,7 @@
                     android:text="Instructor Name:" />
 
                 <EditText
-                    android:id="@+id/instructor_name"
+                    android:id="@+id/ins_name"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
@@ -86,7 +86,7 @@
                     android:text="Instructor Phone#" />
 
                 <EditText
-                    android:id="@+id/instructor_phone"
+                    android:id="@+id/ins_phone"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
@@ -105,7 +105,7 @@
                     android:text="Instructor Email" />
 
                 <EditText
-                    android:id="@+id/instructor_email"
+                    android:id="@+id/ins_email"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
                     android:imeOptions="actionDone"
@@ -145,9 +145,6 @@
                     android:datePickerMode="spinner"
                     android:calendarViewShown="false"/>
             </LinearLayout>
-
-
-
         </LinearLayout>
     </ScrollView>
 
