@@ -37,13 +37,16 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                     int position = getAdapterPosition();
                     final CourseEntity current= mCourses.get(position);
                     //to next screen
-//                    Intent intent = new Intent(context, CourseActivity.class);
-//                    //pass extra data to the next screen
-//                    intent.putExtra("id", current.getId());
-//                    intent.putExtra("courseTitle", current.getCourseTitle());
-//                    context.startActivity(intent);
-                    System.out.println(getItemCount());
-
+                    Intent intent = new Intent(context, AssessmentActivity.class);
+                    //pass extra course data to the next screen
+                    intent.putExtra("course_id", current.getId());
+                    intent.putExtra("course_title", current.getCourseTitle());
+                    intent.putExtra("status", current.getProgressStatus());
+                    intent.putExtra("iName", current.getInstructorPhone());
+                    intent.putExtra("iPhone", current.getInstructorPhone());
+                    intent.putExtra("iEmail", current.getInstructorEmail());
+                    intent.putExtra("course_note", current.getCourseNote());
+                    context.startActivity(intent);
                 }
             });
         }

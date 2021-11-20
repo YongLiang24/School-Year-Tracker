@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolYearTracker">
         <activity
+            android:name=".views.AssessmentActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.AddCourse"
             android:exported="false"
-            android:label="Create a New Course"/>
+            android:label="Create a New Course" />
         <activity
             android:name=".views.CourseActivity"
             android:exported="false"
