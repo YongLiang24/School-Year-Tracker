@@ -7,6 +7,8 @@
     <string name="endDate">End Date</string>
     <string name="save">Save</string>
     <string name="AddTerm">Add a Term</string>
+    <string name="channel_name">channel_name</string>
+    <string name="channel_description">channel_description</string>
 
     <string-array name="status_spinner">
         <item>In Progress</item>
