@@ -47,17 +47,19 @@ public class AssessmentActivity extends AppCompatActivity {
                 return true;
 
             case R.id.edit_course:
-                String myFormat="11/21/2021";
+                String dateInput="11/21/2021";
+                String myFormat="MM/dd/yyyy";
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                 Date myDate =null;
                 try {
-                    myDate=sdf.parse(myFormat);
+                    myDate=sdf.parse(dateInput);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
                 Long trigger= myDate.getTime();
 
-                System.out.println("trigger time: " +trigger);
+                System.out.println("date time:" +trigger);
+
                 Intent intent = new Intent(AssessmentActivity.this, MyReceiver.class);
                 intent.putExtra("key","message i want to test");
 
@@ -65,9 +67,9 @@ public class AssessmentActivity extends AppCompatActivity {
 
                 AlarmManager myAlarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
                 //this sets when the alert to trigger
-                //myAlarm.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+                myAlarm.set(AlarmManager.RTC_WAKEUP, trigger, sender);
 
-                myAlarm.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + 20000 ,sender);
+                //myAlarm.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + 20000 ,sender);
 
 
         }
