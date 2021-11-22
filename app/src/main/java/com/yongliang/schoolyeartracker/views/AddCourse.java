@@ -2,6 +2,9 @@ package com.yongliang.schoolyeartracker.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -16,6 +19,10 @@ import com.yongliang.schoolyeartracker.Database.Repository;
 import com.yongliang.schoolyeartracker.Entity.CourseEntity;
 import com.yongliang.schoolyeartracker.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Objects;
 
 public class AddCourse extends AppCompatActivity {
@@ -69,8 +76,8 @@ public class AddCourse extends AppCompatActivity {
         int sMonth = sDate.getMonth()+1;
         int eMonth = eDate.getMonth()+1;
         String courseName=cName.getText().toString();
-        String startDate =String.valueOf(sMonth)+"-"+String.valueOf(sDate.getDayOfMonth())+"-"+String.valueOf(sDate.getYear());
-        String endDate= String.valueOf(eMonth)+"-"+String.valueOf(eDate.getDayOfMonth())+"-"+String.valueOf(eDate.getYear());
+        String startDate =String.valueOf(sMonth)+"/"+String.valueOf(sDate.getDayOfMonth())+"/"+String.valueOf(sDate.getYear());
+        String endDate= String.valueOf(eMonth)+"/"+String.valueOf(eDate.getDayOfMonth())+"/"+String.valueOf(eDate.getYear());
         String courseStatus =mSpinner.getSelectedItem().toString();
         String insName = iName.getText().toString();
         String insPhone = iPhone.getText().toString();
@@ -80,16 +87,46 @@ public class AddCourse extends AppCompatActivity {
 
         if(courseName.isEmpty() || insName.isEmpty() || insPhone.isEmpty() || insEmail.isEmpty()){
             Toast.makeText(getApplicationContext(),"Please fill all fields before Saving",Toast.LENGTH_LONG).show();
+
         }
         else{
+
             Repository repo = new Repository(getApplication());
             CourseEntity newCourse = new CourseEntity(term_id, courseName, startDate, endDate, courseStatus, insName, insPhone, insEmail, courseNote, isAlert);
             repo.insert(newCourse);
+
+            setDateAlert(startDate, "Course ("+courseName+ ") Start Date: "+startDate);
+            setDateAlert(endDate, "Course (" +courseName+ ") End Date: "+endDate);
 
             Intent intent = new Intent(AddCourse.this, CourseActivity.class);
             startActivity(intent);
         }
 
 
+    }
+
+    //A broadcast method for start_date and end_date alert
+    void setDateAlert(String alertDate, String alertText){
+
+        String myFormat="MM/dd/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+        Date myDate =null;
+        try {
+            myDate=sdf.parse(alertDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Long trigger= myDate.getTime();
+
+
+        Intent intent = new Intent(AddCourse.this, MyReceiver.class);
+        intent.putExtra("key", alertText);
+
+        PendingIntent sender = PendingIntent.getBroadcast(AddCourse.this, ++MainActivity.numAlert, intent, 0);
+
+        AlarmManager myAlarm = (AlarmManager)getSystemService(Context.ALARM_SERVICE);
+        //this sets when the alert to trigger
+        myAlarm.set(AlarmManager.RTC_WAKEUP, trigger, sender);
+        //myAlarm.setExact(AlarmManager.RTC_WAKEUP,System.currentTimeMillis() + 20000 ,sender);
     }
 }

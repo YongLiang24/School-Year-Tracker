@@ -15,7 +15,7 @@ import androidx.core.app.NotificationCompat;
 import com.yongliang.schoolyeartracker.R;
 
 public class MyReceiver extends BroadcastReceiver {
-    String channelID="test";
+    String channelID="c01";
     static int notificationID;
 
     @Override
@@ -25,7 +25,7 @@ public class MyReceiver extends BroadcastReceiver {
         Notification note = new NotificationCompat.Builder(context, channelID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentText(intent.getStringExtra("key"))
-                .setContentTitle("NotificationTest").build();
+                .setContentTitle("Date Alert").build();
 
         NotificationManager notificationManager=(NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(notificationID++, note);
