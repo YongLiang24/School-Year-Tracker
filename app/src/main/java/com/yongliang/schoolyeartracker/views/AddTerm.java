@@ -66,7 +66,6 @@ public class AddTerm extends AppCompatActivity {
             Repository repo = new Repository(getApplication());
             TermEntity newTerm= new TermEntity(termTitle,startDate,endDate);
             repo.insert(newTerm);
-
             Intent intent = new Intent(AddTerm.this, TermActivity.class);
             startActivity(intent);
         }

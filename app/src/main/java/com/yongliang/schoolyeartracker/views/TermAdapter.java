@@ -39,7 +39,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.TermViewHolder
                     Intent intent = new Intent(context, CourseActivity.class);
                     //pass extra data to the next screen
                     intent.putExtra("id", current.getId());
-                    intent.putExtra("termName", current.getTermName());
+                    //intent.putExtra("termName", current.getTermName());
                     context.startActivity(intent);
 
                 }

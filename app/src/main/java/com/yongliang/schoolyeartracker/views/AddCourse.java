@@ -97,8 +97,15 @@ public class AddCourse extends AppCompatActivity {
 
             setDateAlert(startDate, "Course ("+courseName+ ") Start Date: "+startDate);
             setDateAlert(endDate, "Course (" +courseName+ ") End Date: "+endDate);
+            
 
             Intent intent = new Intent(AddCourse.this, CourseActivity.class);
+            intent.putExtra("id", term_id);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             startActivity(intent);
         }
 

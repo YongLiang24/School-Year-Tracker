@@ -18,6 +18,7 @@ public class Repository {
     private List<TermEntity> mAllTerms;
 
     private TermEntity mThisTerm;
+    private CourseEntity mThisCourse;
 
     private CourseDAO mCourseDao;
     private List<CourseEntity> mAllCourses;
@@ -66,6 +67,20 @@ public class Repository {
         return mThisTerm;
     }
 
+    //get a course by id
+    public CourseEntity getThisCourse(int id){
+        databaseExecutor.execute(()->{
+            mThisCourse = mCourseDao.getThisCourse(id);
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mThisCourse;
+    }
+
     //get all courses
     public List<CourseEntity> getAllCourses(){
         databaseExecutor.execute(()->{
@@ -82,7 +97,7 @@ public class Repository {
     }
 
     //get all assessments
-    public List<AssessmentEntity> getmAllAssessments(){
+    public List<AssessmentEntity> getAllAssessments(){
         databaseExecutor.execute(()->{
             mAllAssessments=mAssessmentDao.getAllAssessment();
 

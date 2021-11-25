@@ -9,15 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolYearTracker">
+        <activity
+            android:name=".views.EditCourse"
+            android:exported="false" />
+        <activity
+            android:name=".views.AddNote"
+            android:exported="false"
+            android:label="Add course note" />
+
         <receiver
             android:name=".views.MyReceiver"
             android:enabled="true"
-            android:exported="true"></receiver>
+            android:exported="true" />
 
         <activity
             android:name=".views.AssessmentActivity"
             android:exported="false"
-            android:label="Assessment's Page"/>
+            android:label="Assessment&apos;s Page" />
         <activity
             android:name=".views.AddCourse"
             android:exported="false"

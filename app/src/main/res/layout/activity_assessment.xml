@@ -63,8 +63,17 @@
         android:textStyle="bold"
         android:layout_weight="1"
         android:text="Course Note: "
-        android:id="@+id/c_note"
         android:layout_marginTop="10dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_weight="1"
+        android:id="@+id/c_note"
+        android:layout_marginTop="3dp"
+        android:hint="  Please use the add note feature to add additional note."
+        android:textColor="#B36C04"
         />
 
 
@@ -72,7 +81,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_border"
+        >
 
         <TextView
             android:layout_width="wrap_content"

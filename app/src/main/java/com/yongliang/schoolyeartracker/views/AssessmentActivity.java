@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.yongliang.schoolyeartracker.Database.Repository;
+import com.yongliang.schoolyeartracker.Entity.CourseEntity;
 import com.yongliang.schoolyeartracker.R;
 
 import org.w3c.dom.Text;
@@ -25,7 +27,9 @@ public class AssessmentActivity extends AppCompatActivity {
 
     int course_id;
     String course_note;
-
+    TextView c_note;
+    Repository repo=new Repository(getApplication());
+    CourseEntity courseObj;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +44,20 @@ public class AssessmentActivity extends AppCompatActivity {
         TextView i_name=(TextView)findViewById(R.id.i_name);
         TextView i_phone=(TextView)findViewById(R.id.i_phone);
         TextView i_email=(TextView)findViewById(R.id.i_email);
-        TextView c_note=(TextView)findViewById(R.id.c_note);
+        c_note=(TextView)findViewById(R.id.c_note);
+
 
         Bundle extraInfo =getIntent().getExtras();
         course_id=extraInfo.getInt("course_id");
-        System.out.println("course ID: "+course_id);
-        c_title.setText("Course Title:  "+extraInfo.getString("course_title"));
-        c_status.setText("Course Status:  "+extraInfo.getString("status"));
-        i_name.setText("Instructor Name:  "+extraInfo.getString("iName"));
-        i_phone.setText("Instructor Phone:  "+extraInfo.getString("iPhone"));
-        i_email.setText("Instructor Email:  "+extraInfo.getString("iEmail"));
+        courseObj = repo.getThisCourse(course_id);
+//        System.out.println("course ID: "+course_id);
+//        System.out.println(courseObj.getCourseTitle());
+        c_title.setText("Course Title:  "+courseObj.getCourseTitle());
+        c_status.setText("Course Status:  "+courseObj.getProgressStatus());
+        i_name.setText("Instructor Name:  "+courseObj.getInstructorName());
+        i_phone.setText("Instructor Phone:  "+courseObj.getInstructorPhone());
+        i_email.setText("Instructor Email:  "+courseObj.getInstructorEmail());
+        c_note.setText(courseObj.getCourseNote());
 
     }
 
@@ -63,18 +71,24 @@ public class AssessmentActivity extends AppCompatActivity {
             case R.id.share_note:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "populate this text");
-                sendIntent.putExtra(Intent.EXTRA_TITLE, "Share this note");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, courseObj.getCourseNote());
+                sendIntent.putExtra(Intent.EXTRA_TITLE, "Title: Note Sharing");
                 sendIntent.setType("text/plain");
-
                 Intent shareIntent=Intent.createChooser(sendIntent, null);
                 startActivity(shareIntent);
                 return true;
-//add_assessment, add_note, delete_course
+
+            //add_assessment, add_note, delete_course
+            case R.id.add_note:
+                Intent intent = new Intent(AssessmentActivity.this, AddNote.class);
+                intent.putExtra("courseID", course_id);
+                startActivity(intent);
+
+            case R.id.add_assessment:
+
             case R.id.edit_course:
 
-
-
+            case R.id.delete_course:
 
 
         }

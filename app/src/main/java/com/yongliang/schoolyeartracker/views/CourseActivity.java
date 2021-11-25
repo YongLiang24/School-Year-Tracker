@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
 
 public class CourseActivity extends AppCompatActivity {
 
-    String mTermName;
+    //String mTermName;
     int mTermID;
-    private Repository repo;
+    private Repository repo=new Repository(getApplication());;
     TermEntity thisTerm;
     List<CourseEntity> filterCourse;
 
@@ -39,9 +39,9 @@ public class CourseActivity extends AppCompatActivity {
 
         Bundle extraInfo =getIntent().getExtras();
         mTermID=extraInfo.getInt("id");
-        mTermName=extraInfo.getString("termName");
+        //mTermName=extraInfo.getString("termName");
 
-        repo=new Repository(getApplication());
+
         //get this term for deletion
         thisTerm= repo.getThisTerm(mTermID);
 
