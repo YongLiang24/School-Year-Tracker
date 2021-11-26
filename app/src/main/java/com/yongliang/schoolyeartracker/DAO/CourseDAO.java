@@ -15,13 +15,13 @@ import java.util.List;
 @Dao
 public interface CourseDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insert(CourseEntity term);
+    void insert(CourseEntity course);
 
     @Update
-    void update(CourseEntity term);
+    void update(CourseEntity course);
 
     @Delete
-    void delete(CourseEntity term);
+    void delete(CourseEntity course);
 
     @Query("SELECT * FROM course_table")
     List<CourseEntity> getAllCourses();

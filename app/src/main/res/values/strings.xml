@@ -16,4 +16,11 @@
         <item>Completed</item>
         <item>Dropped</item>
     </string-array>
+
+    <string-array name="type_spinner">
+        <item>Performance</item>
+        <item>Objective</item>
+    </string-array>
+
+
 </resources>

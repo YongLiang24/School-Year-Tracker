@@ -10,8 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SchoolYearTracker">
         <activity
+            android:name=".views.EditAssessment"
+            android:exported="false"
+            android:label="Edit Assessment"/>
+        <activity
+            android:name=".views.AddAssessment"
+            android:exported="false"
+            android:label="Add Assessment"/>
+        <activity
             android:name=".views.EditCourse"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Edit Course"/>
         <activity
             android:name=".views.AddNote"
             android:exported="false"

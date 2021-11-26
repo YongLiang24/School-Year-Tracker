@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.EditCourse">
+    tools:context=".views.AddAssessment">
 
     <ScrollView
         android:layout_width="409dp"
@@ -23,22 +23,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" >
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Course Name" />
+                    android:text="Assessment Title: " />
 
                 <EditText
-                    android:id="@+id/course_title"
+                    android:id="@+id/addAssessmentTitle"
                     android:layout_width="200dp"
                     android:layout_height="wrap_content"
-                    android:hint="Course Name"
                     android:imeOptions="actionDone"
                     android:inputType="text"
                     android:maxLines="1"
                     tools:ignore="TouchTargetSizeCheck" />
             </LinearLayout>
-
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,14 +43,14 @@
                 android:orientation="horizontal"
                 android:layout_marginBottom="15dp">
                 <TextView
-                    android:layout_width="100dp"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Course Status" />
+                    android:text="Assessment Type: " />
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:spinnerMode="dropdown"
-                    android:id="@+id/st_spinner">
+                    android:id="@+id/type_spinner">
                 </Spinner>
             </LinearLayout>
 
@@ -64,71 +61,16 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="Instructor Name:" />
-
-                <EditText
-                    android:id="@+id/ins_name"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
-                    android:maxLines="1"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Instructor Phone#" />
-
-                <EditText
-                    android:id="@+id/ins_phone"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
-                    android:inputType="phone"
-                    android:maxLines="1"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="Instructor Email" />
-
-                <EditText
-                    android:id="@+id/ins_email"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:imeOptions="actionDone"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:text="@string/start_date" />
+                    android:text="Start Date: " />
                 <DatePicker
-                    android:id="@+id/startDatePicker"
+                    android:id="@+id/sDatePicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:datePickerMode="spinner"
                     android:calendarViewShown="false"/>
+
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -139,24 +81,27 @@
                     android:layout_height="wrap_content"
                     android:text="@string/endDate" />
                 <DatePicker
-                    android:id="@+id/endDatePicker"
+                    android:id="@+id/eDatePicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:datePickerMode="spinner"
                     android:calendarViewShown="false"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/save"
+                    android:onClick="saveAssessment"
+                    android:gravity="center"/>
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Update"
-        android:onClick="updateCourse"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
