@@ -85,7 +85,9 @@ public class AssessmentActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
             case android.R.id.home:
-                this.finish();
+                Intent i_intent = new Intent(AssessmentActivity.this, CourseActivity.class);
+                i_intent.putExtra("id", courseObj.getTerm_id());
+                startActivity(i_intent);
                 return true;
 
             case R.id.share_note:
@@ -113,6 +115,7 @@ public class AssessmentActivity extends AppCompatActivity {
 
             case R.id.delete_course:
                 confirmDelete("Delete this course?", "Deleting this course will also delete all associated assessments.");
+
                 return true;
 
             case R.id.add_assessment:
@@ -140,8 +143,17 @@ public class AssessmentActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("YES",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-
-
+                        int term_id=courseObj.getTerm_id();
+                        //deletes all assessments associated with this course.
+                        if(!filterAssessments.isEmpty()){
+                            for(AssessmentEntity mAssessment: filterAssessments){
+                                repo.delete(mAssessment);
+                            }
+                        }
+                        repo.delete(courseObj);
+                        Intent d_intent = new Intent(AssessmentActivity.this, CourseActivity.class);
+                        d_intent.putExtra("id", term_id);
+                        startActivity(d_intent);
                     }
                 });
 

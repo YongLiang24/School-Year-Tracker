@@ -12,7 +12,7 @@
         <activity
             android:name=".views.EditAssessment"
             android:exported="false"
-            android:label="Edit Assessment"/>
+            android:label="Modify Assessment"/>
         <activity
             android:name=".views.AddAssessment"
             android:exported="false"
