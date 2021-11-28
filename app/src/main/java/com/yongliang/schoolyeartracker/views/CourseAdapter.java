@@ -40,6 +40,8 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.CourseView
                     Intent intent = new Intent(context, AssessmentActivity.class);
                     //pass extra course data to the next screen
                     intent.putExtra("course_id", current.getId());
+
+
                     context.startActivity(intent);
                 }
             });

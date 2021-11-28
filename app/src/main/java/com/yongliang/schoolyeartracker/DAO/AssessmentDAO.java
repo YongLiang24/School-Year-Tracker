@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.yongliang.schoolyeartracker.Entity.AssessmentEntity;
+import com.yongliang.schoolyeartracker.Entity.CourseEntity;
 
 import java.util.List;
 
@@ -24,4 +25,7 @@ public interface AssessmentDAO {
 
     @Query("SELECT * FROM assessment_table")
     List<AssessmentEntity> getAllAssessment();
+
+    @Query("SELECT * FROM assessment_table WHERE id= :id")
+    AssessmentEntity getThisAssessment(int id);
 }

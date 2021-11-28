@@ -19,6 +19,7 @@ public class Repository {
 
     private TermEntity mThisTerm;
     private CourseEntity mThisCourse;
+    private AssessmentEntity mAssessment;
 
     private CourseDAO mCourseDao;
     private List<CourseEntity> mAllCourses;
@@ -79,6 +80,20 @@ public class Repository {
             e.printStackTrace();
         }
         return mThisCourse;
+    }
+
+    //get assessment by id
+    public AssessmentEntity getThisAssessment(int id){
+        databaseExecutor.execute(()->{
+            mAssessment = mAssessmentDao.getThisAssessment(id);
+        });
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return mAssessment;
     }
 
     //get all courses

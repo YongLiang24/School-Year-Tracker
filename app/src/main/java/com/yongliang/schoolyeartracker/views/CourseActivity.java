@@ -25,7 +25,7 @@ public class CourseActivity extends AppCompatActivity {
 
     //String mTermName;
     int mTermID;
-    private Repository repo=new Repository(getApplication());;
+    private Repository repo=new Repository(getApplication());
     TermEntity thisTerm;
     List<CourseEntity> filterCourse;
 
