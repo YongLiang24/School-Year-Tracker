@@ -64,25 +64,9 @@
                 <TextView
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/start_date" />
-                <DatePicker
-                    android:id="@+id/startDatePicker"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:datePickerMode="spinner"
-                    android:calendarViewShown="false"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-                <TextView
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
                     android:text="@string/endDate" />
                 <DatePicker
-                    android:id="@+id/endDatePicker"
+                    android:id="@+id/a_endDatePicker"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:datePickerMode="spinner"
